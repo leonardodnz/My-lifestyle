@@ -1,0 +1,194 @@
+:root{
+  --img_width: 280px;
+  --img_height: 500px;
+  --one_color: #45A29E;
+  --two_color: #66FCF1;
+  --thre_color: #0B0C10;
+  --four_color: #1F2833;
+  --div_backcolor: #07182E;
+  --animation_time: 0.5s;
+  --borders_angles: 20px;
+}
+
+body{
+  margin: 0;
+  font-family: "Poppins";
+  background-color: var(--four_color)
+}
+#content{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+  padding: 10px 20px 10px;
+  /*border: solid red;*/
+}
+header{
+  text-align: center;
+  background: linear-gradient(to top left, var(--thre_color), var(--four_color));
+  margin: 0;
+  padding: 10px;
+  color: var(--two_color);
+  font-size: 20px;
+}
+h1{
+  margin: 0;
+}
+/*main{
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}*/
+
+
+/*---------------------------MAIN IMAGES---------------------------*/
+#movie{
+  background-image: url(./assets/movie.jpg);
+}
+#workout{
+  background-image: url(./assets/workout.jpg);
+}
+#games{
+  background-image: url(./assets/games.jpg);
+}
+#music{
+  background-image: url(./assets/music.jpg);
+}
+#knowledge{
+  background-image: url(./assets/knowledge.png);
+}
+#programming{
+  background-image: url(./assets/programming.jpg);
+}
+/*---------------------------MAIN IMAGES---------------------------*/
+
+#movie, #workout, #games, #music, #knowledge, #programming{
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+
+#hobbie_title > h3{
+  color: var(--two_color);
+  font-size: 30px;
+  margin-top: 20px ;
+  margin-bottom: 20px;
+}
+
+
+legend{
+  font-size: 20px;
+  background-color: rgba(69, 162, 157, 0.6);/*one_color*/
+  color: var(--thre_color);
+  width: fit-content;
+  font-weight: 400;
+  border: solid 2px;
+  border-radius: 5px;
+  padding: 2px 5px 2px 5px;
+}
+
+#first_main > div > p{
+  margin: 0;
+  font-weight: 400;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: var(--two_color);
+  padding: 2px 5px 2px 5px;
+  border-radius: 10px;
+  opacity: 0;
+  transition: opacity var(--animation_time) ease-in-out;
+  text-align: justify;
+}
+
+/*-----------------HOVER AREA -----------------*/
+#first_main > div:hover{
+  width: 300px;
+  height: 520px;
+}
+
+#first_main > div:hover p{
+  opacity: 1;
+}
+/*-----------------HOVER AREA -----------------*/
+
+#first_main > div{
+  width: var(--img_width);
+  height: var(--img_height);
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  justify-content: space-between;
+  border-radius: 15px;
+  transition: width var(--animation_time) ease-in-out, height var(--animation_time) ease-in-out;
+}
+
+#first_main{
+  display: flex;
+  justify-content: space-evenly;
+}
+
+/*--------------animation--------------*/
+
+main{
+  display: grid;
+  grid-template-rows: auto 200px;
+}
+main > .insta{
+  place-self: center;
+}
+
+.insta {
+  width: 150px;
+  height: 150px;
+  background: var(--div_backcolor);
+  position: relative;
+  display: flex;
+  place-content: center;
+  place-items: center;
+  overflow: hidden;/*-----------*/
+  border-radius: var(--borders_angles);
+  transition: width var(--animation_time) ease-in-out, height var(--animation_time) ease-in-out;
+}
+
+.insta a {
+  z-index: 1;
+  color: var(--two_color);
+  font-size: 20px;
+}
+
+.insta::before {
+  content: '';
+  position: absolute;
+  width: 50%;
+  background: linear-gradient(transparent 50%, var(--one_color));
+  height: 140%;
+  animation: rotBGimg 3.5s linear infinite;
+}
+
+@keyframes rotBGimg {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.insta::after {
+  content: '';
+  position: absolute;
+  background: var(--div_backcolor);
+  inset: 6px;/*---------*/
+  border-radius: var(--borders_angles);
+}
+
+.insta:hover:before {
+  background-image: linear-gradient(transparent 50%, var(--two_color));
+  animation: rotBGimg 3s linear infinite;
+} 
+.insta:hover{
+  height: 170px;
+  width: 170px;
+}
+/*--------------animation--------------*/
+
